@@ -9,17 +9,17 @@ Help::Help(int width, int height)
 	}
 
 	prompt[0].setFont(font);
-	prompt[0].setString("sample");
+	prompt[0].setString("Fly around in your spaceship using WASD");
 	prompt[0].setCharacterSize(40);
 	prompt[0].setPosition(sf::Vector2f(width / 3, height / (helpItems + 1) * 1));
 
 	prompt[1].setFont(font);
-	prompt[1].setString("sample");
+	prompt[1].setString("Shoot your enemies");
 	prompt[1].setCharacterSize(40);
 	prompt[1].setPosition(sf::Vector2f(width / 3, height / (helpItems + 1) * 2));
 
 	prompt[2].setFont(font);
-	prompt[2].setString("sample");
+	prompt[2].setString("Avoid the deadly poison clouds");
 	prompt[2].setCharacterSize(40);
 	prompt[2].setPosition(sf::Vector2f(width / 3, height / (helpItems + 1) * 3));
 }
