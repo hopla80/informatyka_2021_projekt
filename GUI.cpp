@@ -35,7 +35,7 @@ void GUI::getTime()
 void GUI::getPoints(Player player)
 {
 	score = std::to_string(player.pointsFun());
-	scoreText.setString(score);
+	scoreText.setString("Points: " + score);
 }
 
 void GUI::getLifes(Player player)

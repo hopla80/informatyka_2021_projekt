@@ -145,6 +145,7 @@
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="End.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Exit.cpp" />
     <ClCompile Include="Explosion.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Block.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Collision.h" />
+    <ClInclude Include="End.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Exit.h" />
     <ClInclude Include="Explosion.h" />

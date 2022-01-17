@@ -4,7 +4,7 @@
 Enemy::Enemy(int random, int posX)
 {
 	type = rand() % 3 + 1;
-	sprite.setPosition(rand() % 1920 + 1, 0);
+	sprite.setPosition(rand() % 1520 + 200, 0);
 	if (type == 1)
 	{
 		texture = new sf::Texture;

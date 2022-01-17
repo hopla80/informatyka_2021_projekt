@@ -10,7 +10,7 @@ Player::Player(int difficulty)
 	{
 		std::cout << "No player sprite";
 	}
-	sprite.setPosition(960, 0);
+	sprite.setPosition(960, 900);
 	sprite.setTexture(texture);
 	sprite.scale(scale, scale);
 }

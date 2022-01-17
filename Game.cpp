@@ -9,6 +9,7 @@
 #include "GUI.h"
 #include "Explosion.h"
 #include "Write.h"
+#include "End.h"
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
@@ -42,20 +43,36 @@ void Game::run(int difficulty)
 	{
 		std::cout << "No block sprite";
 	}
-	block1.sprite.setPosition(rand() % 1920, rand() % 680);
+	block1.sprite.setPosition(rand() % 1920 - 50, rand() % 680);
 	block1.sprite.setTexture(block1.texture);
 	block1.scale = 2;
 	block1.sprite.scale(block1.scale, block1.scale);
 
 	Block block2;
-	if (!block2.texture.loadFromFile("Resources/Images/block2.png"))
+	if (difficulty > 0)
 	{
-		std::cout << "No block sprite";
+		if (!block2.texture.loadFromFile("Resources/Images/block2.png"))
+		{
+			std::cout << "No block sprite";
+		}
+		block2.sprite.setPosition(rand() % 1920 - 100, rand() % 680);
+		block2.sprite.setTexture(block2.texture);
+		block2.scale = 2.5f;
+		block2.sprite.scale(block2.scale, block2.scale);
 	}
-	block2.sprite.setPosition(rand() % 1920, rand() % 680);
-	block2.sprite.setTexture(block2.texture);
-	block2.scale = 2.5f;
-	block2.sprite.scale(block2.scale, block2.scale);
+
+	Block block3;
+	if (difficulty > 1)
+	{
+		if (!block3.texture.loadFromFile("Resources/Images/block3.png"))
+		{
+			std::cout << "No block sprite";
+		}
+		block3.sprite.setPosition(rand() % 1920 - 200, rand() % 680);
+		block3.sprite.setTexture(block3.texture);
+		block3.scale = 4;
+		block3.sprite.scale(block3.scale, block3.scale);
+	}
 	GUI Gui;
 
 	std::cout << "Opening game\n";
@@ -112,7 +129,7 @@ void Game::run(int difficulty)
 			}
 		}
 		elapsed = clock.getElapsedTime();
-		if (elapsed.asMilliseconds() > 2500)
+		if (elapsed.asMilliseconds() > 1000)
 		{
 			enemy.emplace_back();
 			clock.restart();
@@ -132,13 +149,14 @@ void Game::run(int difficulty)
 			{
 				if (Collision::PixelPerfectTest(bullet[i].sprite, enemy[j].sprite))
 				{
-					//explosion.emplace_back(explosionCounter);
-					//explosionCounter++;
 					bullet.erase(begin(bullet) + i);
 					enemy.erase(begin(enemy) + j);
 					player.points++;
-					//std::cout << explosionCounter;
 				}
+			}
+			if ((Collision::PixelPerfectTest(block1.sprite, bullet[i].sprite)) || (Collision::PixelPerfectTest(block2.sprite, bullet[i].sprite)) || (Collision::PixelPerfectTest(block3.sprite, bullet[i].sprite)))
+			{
+				bullet.erase(begin(bullet) + i);
 			}
 		}
 		for (int i = 0; i < enemy.size(); i++)
@@ -160,7 +178,9 @@ void Game::run(int difficulty)
 		if (player.life == 0)
 		{
 			write.run(player, difficulty);
-			exit(0);
+			gameWindow.close();
+			End end;
+			end.run();
 		}
 		gameWindow.clear();
 		gameWindow.draw(background);
@@ -175,10 +195,7 @@ void Game::run(int difficulty)
 		}
 		block1.run(gameWindow);
 		block2.run(gameWindow);
-		//for (int i = 0; i < explosion.size(); i++)
-		//{
-		//	explosion[i].run(gameWindow);
-		//}
+		block3.run(gameWindow);
 		Gui.run(gameWindow, player);
 		gameWindow.display();
 	}

@@ -16,7 +16,7 @@ Highscores::Highscores(int width, int height)
 	{
 		score[i].setFont(font);
 		score[i].setCharacterSize(40);
-		score[i].setPosition(sf::Vector2f(width / 3, height / ((scoreItems + 1) * (i+1))));
+		score[i].setPosition(sf::Vector2f(width / 3, (height-100) / (scoreItems + 1) * (i+1) + 100));
 	}
 }
 
