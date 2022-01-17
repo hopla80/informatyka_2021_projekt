@@ -142,7 +142,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="informatyka_2021_projekt.cpp" />
+    <ClCompile Include="Block.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Exit.cpp" />
+    <ClCompile Include="Explosion.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GUI.cpp" />
+    <ClCompile Include="Help.cpp" />
+    <ClCompile Include="Highscores.cpp" />
+    <ClCompile Include="Level.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MakeTime.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="MakeScore.cpp" />
+    <ClCompile Include="Write.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Block.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="Collision.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Exit.h" />
+    <ClInclude Include="Explosion.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="GUI.h" />
+    <ClInclude Include="Help.h" />
+    <ClInclude Include="Highscores.h" />
+    <ClInclude Include="Level.h" />
+    <ClInclude Include="MakeTime.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="MakeScore.h" />
+    <ClInclude Include="Write.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
